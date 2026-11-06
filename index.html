@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños, mi pequeñita preciosa! ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(10deg); opacity: 0.8; }
+            100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+        }
+        .floating-heart {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 relative overflow-x-hidden">
+
+    <!-- Fondo con corazones decorativos flotantes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        <div class="absolute top-10 left-6 sm:left-10 text-rose-500 text-2xl sm:text-3xl floating-heart" style="animation-delay: 0s;">❤️</div>
+        <div class="absolute top-1/4 right-8 sm:right-16 text-pink-500 text-3xl sm:text-4xl floating-heart" style="animation-delay: 1s;">💖</div>
+        <div class="absolute bottom-20 left-1/4 text-rose-400 text-xl sm:text-2xl floating-heart" style="animation-delay: 2s;">✨</div>
+        <div class="absolute bottom-10 right-1/4 sm:right-1/3 text-pink-400 text-2xl sm:text-3xl floating-heart" style="animation-delay: 1.5s;">❤️</div>
+    </div>
+
+    <!-- PANTALLA 1: BLOQUEO / ACCESO SECRETO -->
+    <div id="lock-screen" class="z-10 bg-slate-900/90 backdrop-blur-md border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-sm sm:max-w-md w-full text-center space-y-6 mx-4">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-rose-500/20 text-rose-500 rounded-full flex items-center justify-center mx-auto text-xl sm:text-2xl">
+            🎁
+        </div>
+        <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-white">¡Hola, mi amor!</h1>
+            <p class="text-xs text-slate-400 mt-1">Escribe tu nombre para abrir tu sorpresa de cumpleaños</p>
+        </div>
+        <input type="text" id="secret-input" placeholder="Escribe tu nombre aquí..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-center text-sm sm:text-base text-white focus:outline-none focus:border-rose-500 transition">
+        <button onclick="unlockSurprise()" class="w-full bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:opacity-95 transition text-sm sm:text-base">
+            Ver sorpresita 🎂
+        </button>
+        <p id="error-msg" class="text-xs text-rose-400 hidden">Escribe bien tu nombre, mi amor ❤️</p>
+    </div>
+
+    <!-- PANTALLA 2: CONTENIDO PRINCIPAL (Oculto hasta desbloquear) -->
+    <main id="main-content" class="hidden z-10 max-w-2xl w-full space-y-6 sm:space-y-8 py-6">
+        
+        <!-- Tarjeta de Bienvenida / Cumpleaños -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl text-center space-y-4">
+            <span class="bg-rose-500/10 text-rose-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">14 de Noviembre - ¡Feliz Cumpleaños!</span>
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white">¡Feliz Cumpleaños, mi esposa linda! 🎉❤️</h1>
+            <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                Hoy celebro tu vida, mi amor, y agradezco infinitamente coincidir contigo en este mundo. Eres mi refugio, mi paz y esa luz que ilumina hasta mis días más grises. Amo descubrir la vida a tu lado, ver la fuerza de tu sonrisa y la nobleza de tu corazón. Deseo que este nuevo año que empiezas esté lleno de risas, de metas cumplidas y de momentos hermosos; yo prometo estar ahí para celebrarlos todos contigo. Feliz cumpleaños, mi vida, gracias por ser exactamente como eres.
+            </p>
+        </div>
+
+        <!-- Reproductor de Música: Ojos Color Sol (SoundCloud exacto) -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-5 sm:p-6 rounded-3xl shadow-2xl text-center space-y-3">
+            <p class="text-xs text-rose-300 font-medium uppercase tracking-wider">🎵 Nuestra Canción: Ojos Color Sol</p>
+            <div class="overflow-hidden rounded-xl border border-slate-800">
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/yhoa-cruz/ojos-color-sol&color=%23f43f5e&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+            </div>
+            <p class="text-[10px] text-slate-400">Dale play para escucharla mientras disfrutas tu sorpresa ❤️</p>
+        </div>
+
+        <!-- Contador de Tiempo Juntos (Desde el 4 de julio de 2023) -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-5 sm:p-6 rounded-3xl shadow-2xl text-center space-y-4">
+            <h2 class="text-xs sm:text-sm font-semibold text-rose-400 uppercase tracking-widest">Nuestro Tiempo Juntos (Desde el 4 de Julio, 2023)</h2>
+            <div class="grid grid-cols-4 gap-2 max-w-md mx-auto">
+                <div class="bg-slate-950 p-2 sm:p-3 rounded-xl border border-slate-800">
+                    <span id="days" class="text-lg sm:text-xl font-bold text-white">0</span>
+                    <p class="text-[9px] sm:text-[10px] text-slate-400 uppercase">Días</p>
+                </div>
+                <div class="bg-slate-950 p-2 sm:p-3 rounded-xl border border-slate-800">
+                    <span id="hours" class="text-lg sm:text-xl font-bold text-white">0</span>
+                    <p class="text-[9px] sm:text-[10px] text-slate-400 uppercase">Horas</p>
+                </div>
+                <div class="bg-slate-950 p-2 sm:p-3 rounded-xl border border-slate-800">
+                    <span id="minutes" class="text-lg sm:text-xl font-bold text-white">0</span>
+                    <p class="text-[9px] sm:text-[10px] text-slate-400 uppercase">Min</p>
+                </div>
+                <div class="bg-slate-950 p-2 sm:p-3 rounded-xl border border-slate-800">
+                    <span id="seconds" class="text-lg sm:text-xl font-bold text-rose-400">0</span>
+                    <p class="text-[9px] sm:text-[10px] text-slate-400 uppercase">Seg</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galería de Momentos / Tarjetas de Amor -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-5 sm:p-6 rounded-3xl shadow-2xl space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white text-center">Nuestros Mejores Momentos </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center space-y-2">
+                    <div class="text-2xl">✨</div>
+                    <h3 class="font-semibold text-xs text-rose-300">El secreto de nuestros inicios</h3>
+                    <p class="text-[11px] text-slate-400">El momento exacto en el que el mundo se detenía y jugábamos a tener un amor secreto. Guardo en mi memoria la complicidad de nuestras miradas, la adrenalina de buscarnos a escondidas y la magia de saber que, en medio de todo el ruido, nuestro único refugio seguro éramos tú y yo.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center space-y-2">
+                    <div class="text-2xl">🌹</div>
+                    <h3 class="font-semibold text-xs text-rose-300">Tu abrazo, mi hogar</h3>
+                    <p class="text-[11px] text-slate-400">Esa forma tuya de llenarme el alma. Hay momentos en los que no hacen falta palabras, solo tus brazos alrededor de mí. Cada vez que me abrazas, siento cómo me cargas por completo de energía; eres mi cable a tierra, mi paz en los días difíciles y el motor que me impulsa a seguir adelante.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center space-y-2">
+                    <div class="text-2xl">🌙</div>
+                    <h3 class="font-semibold text-xs text-rose-300">El horizonte que soñamos</h3>
+                    <p class="text-[11px] text-slate-400">Nuestras ganas de casarnos pronto. El momento más hermoso, es el que estamos construyendo con los ojos puestos en el futuro. Me llena de ilusión ver cómo compartimos el mismo sueño: el de tomarnos de la mano, dar el gran paso y empezar a diseñar una vida entera juntos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Razones por las que la amas -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-5 sm:p-6 rounded-3xl shadow-2xl space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white text-center">Pequeñas cosas que amo de ti 💌</h2>
+            <div class="space-y-2">
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800 cursor-pointer">
+                    <summary class="font-medium text-xs sm:text-sm text-rose-300">1. Tu sonrisa</summary>
+                    <p class="text-xs text-slate-400 mt-2">Hay un momento exacto en el que te veo sonreír y el mundo entero parece detenerse. No sé si es por cómo se iluminan tus ojos o por la paz que me da saber que estás feliz, pero tu sonrisa es mi lugar favorito. Con tan solo un gesto tuyo, cualquier preocupación se borra y sé que, pase lo que pase, todo va a estar bien. Nunca dejes de regalarle esa luz al mundo, aunque mi parte egoísta siempre va a querer ser la primera en provocarla.".</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800 cursor-pointer">
+                    <summary class="font-medium text-xs sm:text-sm text-rose-300">2. Tu hermosa forma de ser</summary>
+                    <p class="text-xs text-slate-400 mt-2">Lo que más me enamora de ti es tu esencia. Tienes una forma de ser que equilibra mi mundo; una mezcla perfecta de ternura, fuerza y autenticidad. Me encanta cómo piensas, cómo pones el corazón en todo lo que haces y la facilidad con la que transformas un día común en algo especial. No hay pose ni filtros en ti, solo un alma transparente que da paz a cualquiera que esté cerca. Caminar a tu lado es un recordatorio constante de lo bonito que es la vida cuando estás con la persona correcta.</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800 cursor-pointer">
+                    <summary class="font-medium text-xs sm:text-sm text-rose-300">3. El brillo de tus ojos</summary>
+                    <p class="text-xs text-slate-400 mt-2">Dicen que los ojos son el reflejo del alma, y en los tuyos yo encontré mi hogar. Me fascina ese brillo único que tienen tus ojitos cuando hablas de lo que te apasiona, cuando te ríes a carcajadas o cuando me miras en silencio. Es una luz tan pura y llena de vida que desarma cualquier mal día y me llena de una paz increíble. No importa cuánta gente haya en un lugar, mis ojos siempre van a buscar ese destello en los tuyos, porque para mí, el mundo entero se ilumina a través de tu mirada.</p>
+                </details>
+            </div>
+        </div>
+
+        <!-- Cofre de Deseos de Cumpleaños -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-5 sm:p-6 rounded-3xl shadow-2xl text-center space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white">Sopla tus velitas🕯️</h2>
+            <p class="text-xs text-slate-300">Haz clic.</p>
+            <button onclick="revealWish()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-xl text-xs transition shadow">
+                Ver mi deseo para ti 🌟
+            </button>
+            <p id="wish-text" class="text-xs text-rose-300 italic hidden pt-2">"Mi amor, en este cumpleaños mi mayor deseo para ti es que el mundo te devuelva toda la luz, la alegría y la paz que tú nos regalas a diario a quienes te rodeamos. Deseo que este nuevo año de vida te llene de salud, que veas cumplirse cada uno de tus proyectos personales y que jamás te falten motivos para sonreír. Por mi parte, mi gran deseo es tener la sabiduría y el amor para hacerte la mujer más feliz del mundo"</p>
+        </div>
+
+        <!-- Botón Interactivo / Pregunta -->
+        <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 p-5 sm:p-6 rounded-3xl shadow-2xl text-center space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white">¿Me permitirías estar a tu lado por el resto de tus cumpleaños?❤️ </h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-2">
+                <button onclick="sayYes()" class="bg-rose-500 hover:bg-rose-600 text-white font-semibold px-6 py-2.5 rounded-xl transition shadow-lg text-xs sm:text-sm">
+                    ¡OBVIO, SIN PENSARLO! ❤️
+                </button>
+                <button id="no-btn" onmouseover="moveButton()" onclick="moveButton()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold px-6 py-2.5 rounded-xl transition text-xs sm:text-sm">
+                    Nehh, no quiero 
+                </button>
+            </div>
+            <p id="response-msg" class="text-xs sm:text-sm font-medium text-rose-400 hidden pt-2">Genial, no tenías otra opción!</p>
+        </div>
+
+    </main>
+
+    <!-- Script de interactividad -->
+    <script>
+        const startDate = new Date(2023, 6, 4); 
+
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            if(document.getElementById('days')) {
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+            }
+        }
+        setInterval(updateCounter, 1000);
+
+        function unlockSurprise() {
+            const input = document.getElementById('secret-input').value.trim().toLowerCase();
+            if(input === "monica") { 
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('main-content').classList.remove('hidden');
+            } else {
+                document.getElementById('error-msg').classList.remove('hidden');
+            }
+        }
+
+        function revealWish() {
+            document.getElementById('wish-text').classList.remove('hidden');
+        }
+
+        function sayYes() {
+            document.getElementById('response-msg').classList.remove('hidden');
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('no-btn');
+            const x = Math.random() * 120 - 60;
+            const y = Math.random() * 80 - 40;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+</html>
